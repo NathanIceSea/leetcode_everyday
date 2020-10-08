@@ -1,0 +1,91 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile C",
+            "command": "gcc",
+            "windows": {
+                "args": [
+                    // '' 括起避免反斜杠和空格导致错误
+                    "'${file}'",
+                    "-o",
+                    "'${workspaceFolder}/build/${fileBasenameNoExtension}.exe'",
+                    "-g",
+                    "-Wall",
+                    "-static",
+                    "-static-libgcc",
+                    "-fexec-charset=GBK",
+                    "-std=c11"
+                ],
+            },
+            "linux": {
+                "args": [
+                    "'${file}'",
+                    "-o",
+                    "'${workspaceFolder}/build/${fileBasenameNoExtension}'",
+                    "-g",
+                    "-Wall",
+                    "-static",
+                    "-static-libgcc",
+                    "-std=c11"
+                ]
+            },
+            "type": "shell",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Compile C++",
+            "command": "g++",
+            "windows": {
+                "args": [
+                    "'${file}'",
+                    "-o",
+                    "'${workspaceFolder}/build/${fileBasenameNoExtension}.exe'",
+                    "-g",
+                    "-Wall",
+                    "-static",
+                    "-static-libgcc",
+                    "-static-libstdc++",
+                    "-fexec-charset=GBK",
+                    "-std=c++17"
+                ],
+            },
+            "linux": {
+                "args": [
+                    "'${file}'",
+                    "-o",
+                    "'${workspaceFolder}/build/${fileBasenameNoExtension}'",
+                    "-g",
+                    "-Wall",
+                    "-static",
+                    "-static-libgcc",
+                    "-static-libstdc++",
+                    "-std=c++17"
+                ],
+            },
+            "type": "shell",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "clean",
+            "command": "find '${workspaceFolder}/build' -type f -not -name '.git*' -delete && find '${workspaceFolder}' -type f -name 'tempCodeRunnerFile*' -delete",
+            "type": "shell",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        }
+    ]
+}
