@@ -33,6 +33,8 @@
         "cpp": "cd $dir && g++ -std=c++17 -g '$fileName' -o '$workspaceRoot/build/$fileNameWithoutExt' && '$workspaceRoot/build/$fileNameWithoutExt'",
     },
     "files.associations": {
-        "vector": "cpp"
+        "vector": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp"
     }
 }
